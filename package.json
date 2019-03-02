@@ -1,7 +1,7 @@
 {
   "name": "localstorage-vcs",
   "version": "0.0.0-development",
-  "description": "Library that will keep your localStorage predictable",
+  "description": "Library that will keep your localStorage predictable.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
