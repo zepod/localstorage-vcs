@@ -1,0 +1,53 @@
+{
+  "name": "localstorage-vcs",
+  "version": "0.0.0-development",
+  "description": "Library that will keep your localStorage predictable",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json --coverage",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push origin master && git push origin master --tags",
+    "semantic-release": "semantic-release",
+    "commit": "git-cz"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.6",
+    "@types/mocha": "^5.2.6",
+    "@types/jquery": "^3.3.29",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "semantic-release": "^15.13.3",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3"
+  },
+  "files": [
+    "./lib/**/*"
+  ],
+  "keywords": [
+    "localstorage",
+    "vcs",
+    "version"
+  ],
+  "author": "zepod",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zepod/localstorage-vcs.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
