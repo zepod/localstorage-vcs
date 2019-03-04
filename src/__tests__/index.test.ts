@@ -13,14 +13,6 @@ describe('index', () => {
   });
 
 
-  it('does not remove all, if no version set', () => {
-    const config = {version: '1', removeAll: true};
-    localStorage.setItem('foo', 'bar')
-    localStorage.setItem('foo', 'bar')
-    createLSVCS(config);
-    expect(localStorage.getItem('foo')).toBe('bar');
-  })
-
   it('updates to new version if version differs', () => {
     const config = {version: '3'};
     localStorage.setItem('LOCAL_STORAGE_VERSION', '2')
@@ -80,5 +72,15 @@ describe('index', () => {
     createLSVCS(config);
     expect(localStorage.getItem('foo')).toBe('bar-rack');
     expect(localStorage.getItem('bar')).toBe('oba-ma');
+  });
+
+  it('removes all when no previous version is set', () => {
+    const config: IConfig = {
+      version: '1',
+      removeAll: true
+    };
+    localStorage.setItem('foo', 'bar');
+    createLSVCS(config);
+    expect(localStorage.getItem('foo')).toBe(null);
   });
 });

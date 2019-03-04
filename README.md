@@ -14,7 +14,7 @@ so localStorage is always up to date.
 Localstorage script exposes a single function, that will run each time your client code gets executed in the browser.
 This function will mutate localStorage based on a configuration that gets passed into the function as it's only
 argument.
-   
+
 ## Config
 #### `config.version`: *string*
 This property notes current version of localStorage that the application expects. Any `string` will qualify as

@@ -16,12 +16,12 @@ export interface IConfig {
 const LOCAL_STORAGE_VERSION = 'LOCAL_STORAGE_VERSION';
 
 export default (config: IConfig) => {
-    const versionInBrowser = localStorage.getItem(LOCAL_STORAGE_VERSION) || config.version;
+    const versionInBrowser = localStorage.getItem(LOCAL_STORAGE_VERSION) || 'DEFAULT';
 
     if (config.version !== versionInBrowser) {
         if (config.migrations) {
-            const currentIndex = Object.keys(config.migrations).indexOf(versionInBrowser);
-            const missingMigrations = config.migrations.slice(currentIndex);
+            const currentIndex = config.migrations.map(([version]) => version).indexOf(versionInBrowser);
+            const missingMigrations = config.migrations.slice(currentIndex === -1 ? 0 : currentIndex + 1);
 
             missingMigrations.forEach(([, keys]) => {
                 const migrationKeys = Object.keys(keys);
