@@ -23,7 +23,7 @@
     "@types/mocha": "^5.2.6",
     "@types/jquery": "^3.3.29",
     "commitizen": "^3.0.7",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.1",
     "jest": "^24.1.0",
     "prettier": "^1.16.4",
     "semantic-release": "^15.13.3",
